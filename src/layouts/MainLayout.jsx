@@ -1,14 +1,18 @@
-import App from '@/App'
-import React from 'react'
-import { Outlet } from 'react-router'
+import App from "@/App";
+import Footer from "../components/common/Footer";
+import React from "react";
+import { Outlet } from "react-router";
+import Header from "@/components/common/Header";
+
 
 const MainLayout = () => {
   return (
     <>
-    <App/>
-    <Outlet/>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
