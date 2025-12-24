@@ -4,7 +4,6 @@ import OurVision from "./OurVision";
 import Services from "./Services";
 import Counter from "./Counter";
 import Testimonials from "./Testimonials";
-import GetTouch from "./GetTouch";
 
 const Home = () => {
   return (
@@ -14,7 +13,6 @@ const Home = () => {
       <Services />
       <Counter />
       <Testimonials />
-      <GetTouch />
     </div>
   );
 };

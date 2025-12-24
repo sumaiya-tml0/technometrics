@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router";
 import { homeLoader } from "./loader";
 import MainLayout from "@/layouts/MainLayout";
 import Home from "@/pages/home/Home";
+import AboutLayout from "@/pages/about/AboutLayout";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,11 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.HOME,
         element: <Home />,
+        loader: homeLoader,
+      },
+      {
+        path: ROUTES.ABOUT,
+        element: <AboutLayout />,
         loader: homeLoader,
       },
     ],
