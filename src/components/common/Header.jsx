@@ -73,45 +73,38 @@ const Header = () => {
             </MenubarMenu>
 
             <MenubarMenu>
-              <Link to="/solutions">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white hover:text-white/80">
-                  SOLUTIONS
-                  <ChevronDown className="h-4 w-4" />
-                </MenubarTrigger>
-              </Link>
+              <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white hover:text-white/80">
+                SOLUTIONS
+                <ChevronDown className="h-4 w-4" />
+              </MenubarTrigger>
+
               <MenubarContent className="min-w-70 shadow-lg rounded-lg p-2">
-                <Link to="/solutions" state={{ scrollTo: "server-storage" }}>
+                <Link to="/server-storage-backup-virtualization">
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Server, Storage, Backup & Virtualization
                   </MenubarItem>
                 </Link>
-                <Link to="/solutions" state={{ scrollTo: "datacenter" }}>
+                <Link to="/datacenter-power-passive-infrastructure">
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Datacenter, Power & Passive Infrastructure
                   </MenubarItem>
                 </Link>
-                <Link to="/solutions" state={{ scrollTo: "bms-fire" }}>
+                <Link to="/bms-fire-surveillance-automation">
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     BMS, Fire, Surveillance & Automation
                   </MenubarItem>
                 </Link>
-                <Link
-                  to="/solutions"
-                  state={{ scrollTo: "digital-transformation" }}
-                >
+                <Link to="/digital-transformation">
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Digital Transformation
                   </MenubarItem>
                 </Link>
-                <Link
-                  to="/solutions"
-                  state={{ scrollTo: "software-development" }}
-                >
+                <Link to="/bespoke-software-development">
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Bespoke Software Development
                   </MenubarItem>
                 </Link>
-                <Link to="/solutions" state={{ scrollTo: "cybersecurity" }}>
+                <Link to="/cyber-security">
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Cybersecurity
                   </MenubarItem>
