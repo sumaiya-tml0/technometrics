@@ -5,7 +5,7 @@ import visionImage from "@/assets/images/home/hero1.jpg";
 
 const OurVision = () => {
   return (
-    <section className="py-16 md:py-24 lg:px-16">
+    <section className="py-16 md:py-24 px-4 sm:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
           {/* Left - Image */}
