@@ -9,35 +9,32 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const OurVision = () => {
   useGSAP(() => {
-    // split the text into chars
+    // split the text into words, then chars (prevents word breaking)
     const text = document.querySelectorAll(".hero-text");
     text.forEach((element) => {
-      const text = new SplitText(element, { type: "chars" });
-      gsap.from(text.chars, {
+      const split = new SplitText(element, { type: "words,chars" });
+      gsap.from(split.chars, {
         scrollTrigger: {
           trigger: element,
           start: "top 80%",
         },
         opacity: 0.2,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power2.out",
-        scrub: true,
+        stagger: 0.02,
       });
     });
   }, []);
   return (
     <section className="py-16 md:py-24 px-4 sm:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center gap-6 mb-12">
+        <div className="flex flex-col md:flex-row items-center gap-6 mb-12">
           <div>
             <img src={visionImage1} className="rounded-2xl" alt="" />
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 hero-text">
+          <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4 hero-text">
             We are committed to delivering excellence by combining deep
             technical expertise, industry best practices, and a client-centric
             approach in every solution we provide.
@@ -77,24 +74,28 @@ const OurVision = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="w-full h-full"
-            
           >
             <div className="relative">
               <img
                 src={visionImage2}
                 alt="Our Vision"
                 className="w-full h-full sm:h-80 md:h-96 object-cover shadow-lg"
-                 style={{
+                style={{
                   clipPath:
                     "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)",
                 }}
               />
-               {/* Decorative element */}
-              <motion.div 
- //move the decorative element up and down slowly indefinitely
+              {/* Decorative element */}
+              <motion.div
+                //move the decorative element up and down slowly indefinitely
                 animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#02b0f0]/20 rounded-2xl -z-10" />
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#02b0f0]/20 rounded-2xl -z-10"
+              />
             </div>
           </motion.div>
 
@@ -107,9 +108,13 @@ const OurVision = () => {
             className="w-full h-full flex flex-col justify-evenly text-center md:text-left"
           >
             <div>
-              <p>Through continuous improvement, innovation, and strict quality standards, we aim to empower organizations with dependable services that support sustainable growth, operational efficiency, and long-term success.</p>
+              <p>
+                Through continuous improvement, innovation, and strict quality
+                standards, we aim to empower organizations with dependable
+                services that support sustainable growth, operational
+                efficiency, and long-term success.
+              </p>
             </div>
-           
           </motion.div>
         </div>
       </div>

@@ -200,7 +200,7 @@ const Services = () => {
   return (
     <section
       ref={containerRef}
-      className="py-16 md:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50"
+      className="relative py-16 md:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

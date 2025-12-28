@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
       </div>
       {/* Marquee Text */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none select-none">
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none select-none z-10">
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: ["0%", "-100%"] }}
