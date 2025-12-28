@@ -114,7 +114,7 @@ const Header = () => {
             </MenubarMenu>
 
             <MenubarMenu>
-              <Link to="/contact">
+              <Link to={ROUTES.CONTACT}>
                 <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
                   CONTACT US
                 </MenubarTrigger>
@@ -226,7 +226,7 @@ const Header = () => {
                 </MenubarMenu>
 
                 <MenubarMenu>
-                  <Link to="/contact">
+                  <Link to={ROUTES.CONTACT}>
                     <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer">
                       CONTACT US
                     </MenubarTrigger>

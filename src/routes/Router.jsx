@@ -12,11 +12,13 @@ import BMSFire from "@/pages/solutions/BMSFire";
 import DigitalTransformation from "@/pages/solutions/DigitalTransformation";
 import SoftwareDevelopment from "@/pages/solutions/SoftwareDevelopment";
 import Cybersecurity from "@/pages/solutions/Cybersecurity";
+import ContactUs from "@/pages/contact/ContactUs";
+import ErrorPage from "@/pages/error/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     element: <MainLayout />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: ROUTES.HOME,
@@ -57,6 +59,11 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.CYBERSECURITY,
         element: <Cybersecurity />,
+      },
+      // Contact page
+      {
+        path: ROUTES.CONTACT,
+        element: <ContactUs />,
       },
     ],
   },
