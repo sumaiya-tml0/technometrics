@@ -14,9 +14,9 @@ import { Button } from "../ui/button";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#282020] backdrop-blur-sm border-b border-gray-100 shadow-sm">
+    <header className="absolute top-0 left-0 right-0 z-50 w-full bg-transparent">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="shrink-0">
             <img
@@ -30,7 +30,7 @@ const Header = () => {
           <Menubar className="hidden lg:flex border-none bg-transparent shadow-none h-auto p-0 gap-1">
             <MenubarMenu>
               <Link to="/">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white hover:text-white/80">
+                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
                   HOME
                 </MenubarTrigger>
               </Link>
@@ -38,7 +38,7 @@ const Header = () => {
 
             <MenubarMenu>
               <Link to="/about-us">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white hover:text-white/80">
+                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white">
                   ABOUT US
                   <ChevronDown className="h-4 w-4" />
                 </MenubarTrigger>
@@ -73,7 +73,7 @@ const Header = () => {
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white hover:text-white/80">
+              <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white">
                 SOLUTIONS
                 <ChevronDown className="h-4 w-4" />
               </MenubarTrigger>
@@ -114,7 +114,7 @@ const Header = () => {
 
             <MenubarMenu>
               <Link to="/contact">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white hover:text-white/80">
+                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
                   CONTACT US
                 </MenubarTrigger>
               </Link>
@@ -122,7 +122,7 @@ const Header = () => {
 
             <MenubarMenu>
               <Link to="/careers">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white hover:text-white/80">
+                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
                   CAREER
                 </MenubarTrigger>
               </Link>
@@ -134,7 +134,7 @@ const Header = () => {
             <SheetTrigger asChild>
               <Button
                 variant="outline"
-                className="lg:hidden md:flex border-white text-white hover:bg-white/10 hover:text-white"
+                className="lg:hidden md:flex border-[#02b0f0] text-[#02b0f0] hover:bg-white/10 hover:text-white"
               >
                 <TextAlignJustify />
               </Button>
