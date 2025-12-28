@@ -1,11 +1,18 @@
 import SolutionSection from "@/components/common/SolutionSection";
+import SolutionBanner from "@/components/common/SolutionBanner";
 import { Sparkles } from "lucide-react";
 
 import solutionImg from "@/assets/images/home/digital-transformation-min.png";
 
 const DigitalTransformation = () => {
   return (
-    <SolutionSection
+    <>
+      <SolutionBanner
+        title="Digital Transformation"
+        subtitle="Solutions"
+        bgImage={solutionImg}
+      />
+      <SolutionSection
       id="digital-transformation"
       subtitle="_Solutions_"
       title="Digital"
@@ -23,6 +30,7 @@ const DigitalTransformation = () => {
       reverse={true}
       bgColor="bg-gray-50"
     />
+    </>
   );
 };
 

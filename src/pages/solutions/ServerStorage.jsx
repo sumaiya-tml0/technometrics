@@ -1,11 +1,18 @@
 import SolutionSection from "@/components/common/SolutionSection";
+import SolutionBanner from "@/components/common/SolutionBanner";
 import { Server } from "lucide-react";
 
 import solutionImg from "@/assets/images/home/server-storage-min.png";
 
 const ServerStorage = () => {
   return (
-    <SolutionSection
+    <>
+      <SolutionBanner
+        title="Server, Storage, Backup & Virtualization"
+        subtitle="Solutions"
+        bgImage={solutionImg}
+      />
+      <SolutionSection
       id="server-storage"
       subtitle="_Solutions_"
       title="Server, Storage, Backup &"
@@ -22,6 +29,7 @@ const ServerStorage = () => {
       Icon={Server}
       reverse={false}
     />
+    </>
   );
 };
 

@@ -1,11 +1,18 @@
 import SolutionSection from "@/components/common/SolutionSection";
+import SolutionBanner from "@/components/common/SolutionBanner";
 import { ShieldCheck } from "lucide-react";
 
 import solutionImg from "@/assets/images/home/informatin-security-min.png";
 
 const Cybersecurity = () => {
   return (
-    <SolutionSection
+    <>
+      <SolutionBanner
+        title="Comprehensive Cybersecurity"
+        subtitle="Solutions"
+        bgImage={solutionImg}
+      />
+      <SolutionSection
       id="cybersecurity"
       subtitle="_Solutions_"
       title="Comprehensive"
@@ -23,6 +30,7 @@ const Cybersecurity = () => {
       reverse={true}
       bgColor="bg-gray-50"
     />
+    </>
   );
 };
 

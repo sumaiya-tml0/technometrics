@@ -1,11 +1,18 @@
 import SolutionSection from "@/components/common/SolutionSection";
+import SolutionBanner from "@/components/common/SolutionBanner";
 import { Code } from "lucide-react";
 
 import solutionImg from "@/assets/images/home/bespoke-min.png";
 
 const SoftwareDevelopment = () => {
   return (
-    <SolutionSection
+    <>
+      <SolutionBanner
+        title="Bespoke Software Development"
+        subtitle="Solutions"
+        bgImage={solutionImg}
+      />
+      <SolutionSection
       id="software-development"
       subtitle="_Solutions_"
       title="Bespoke Software"
@@ -22,6 +29,7 @@ const SoftwareDevelopment = () => {
       Icon={Code}
       reverse={false}
     />
+    </>
   );
 };
 

@@ -1,11 +1,18 @@
 import SolutionSection from "@/components/common/SolutionSection";
+import SolutionBanner from "@/components/common/SolutionBanner";
 import { Flame } from "lucide-react";
 
 import solutionImg from "@/assets/images/home/bms-fire-min.png";
 
 const BMSFire = () => {
   return (
-    <SolutionSection
+    <>
+      <SolutionBanner
+        title="BMS, Fire, Surveillance & Automation"
+        subtitle="Solutions"
+        bgImage={solutionImg}
+      />
+      <SolutionSection
       id="bms-fire"
       subtitle="_Solutions_"
       title="BMS, Fire, Surveillance &"
@@ -22,6 +29,7 @@ const BMSFire = () => {
       Icon={Flame}
       reverse={false}
     />
+    </>
   );
 };
 

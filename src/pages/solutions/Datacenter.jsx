@@ -1,11 +1,18 @@
 import SolutionSection from "@/components/common/SolutionSection";
+import SolutionBanner from "@/components/common/SolutionBanner";
 import { Building2 } from "lucide-react";
 
 import solutionImg from "@/assets/images/home/data-center-min-scaled.jpg";
 
 const Datacenter = () => {
   return (
-    <SolutionSection
+    <>
+      <SolutionBanner
+        title="Datacenter, Power & Passive Infrastructure"
+        subtitle="Solutions"
+        bgImage={solutionImg}
+      />
+      <SolutionSection
       id="datacenter"
       subtitle="_Solutions_"
       title="Datacenter, Power &"
@@ -23,6 +30,7 @@ const Datacenter = () => {
       reverse={true}
       bgColor="bg-gray-50"
     />
+    </>
   );
 };
 
