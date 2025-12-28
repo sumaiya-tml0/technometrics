@@ -4,8 +4,27 @@ import { motion } from "motion/react";
 import heroBg from "@/assets/images/home/heroBg.jpg";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, ArrowUpRight, Star } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+import gsap from "gsap";
 
 const Hero = () => {
+    useGSAP(() => {
+      // split the text into words, then chars (prevents word breaking)
+      const text = document.querySelectorAll(".hero-text");
+      text.forEach((element) => {
+        const split = new SplitText(element, { type: "words,chars" });
+        gsap.from(split.chars, {
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+          },
+          y: 30,
+          opacity: 0,
+          stagger: 0.03,
+        });
+      });
+    }, []);
   return (
     <div
       className="relative min-h-screen py-16 md:py-24 px-4 sm:px-8 lg:px-16 bg-cover bg-center bg-no-repeat"
@@ -15,11 +34,11 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/75" />
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between lg:gap-12 gap-8 pt-32 sm:pt-48 md:pt-56 lg:pt-72 relative z-10">
         <div className="relative z-10 flex-1 text-center lg:text-left">
-          <p className="text-white text-sm sm:text-base md:text-lg w-full sm:w-2/3 lg:w-1/2 xl:w-1/3 mx-auto lg:mx-0">
+          <p className="text-white text-sm sm:text-base md:text-lg w-full sm:w-2/3 lg:w-1/2 xl:w-1/3 mx-auto lg:mx-0 hero-text">
             We deliver innovative information technology solutions that empower
             businesses and organizations to grow with confidence.
           </p>
-          <div className="mt-6 sm:mt-8 flex flex-row justify-center lg:justify-start gap-3 sm:gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
             <Button className="uppercase px-4 py-5 sm:p-6 text-sm sm:text-base bg-[#02b0f0] text-white hover:bg-[#02b0f0]/90 cursor-pointer">
               learn more <ArrowDown className="h-4 w-4 sm:h-5 sm:w-5" />
             </Button>

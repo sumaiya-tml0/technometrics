@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const OurVision = () => {
   useGSAP(() => {
     // split the text into words, then chars (prevents word breaking)
-    const text = document.querySelectorAll(".hero-text");
+    const text = document.querySelectorAll(".vision-text");
     text.forEach((element) => {
       const split = new SplitText(element, { type: "words,chars" });
       gsap.from(split.chars, {
@@ -34,7 +34,7 @@ const OurVision = () => {
           <div>
             <img src={visionImage1} className="rounded-2xl" alt="" />
           </div>
-          <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4 hero-text">
+          <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4 vision-text">
             We are committed to delivering excellence by combining deep
             technical expertise, industry best practices, and a client-centric
             approach in every solution we provide.
