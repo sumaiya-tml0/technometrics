@@ -1,8 +1,7 @@
 import SolutionSection from "@/components/common/SolutionSection";
 import { Code } from "lucide-react";
 
-// Update with actual image
-import solutionImg from "@/assets/images/about/aboutBanner.png";
+import solutionImg from "@/assets/images/home/bespoke-min.png";
 
 const SoftwareDevelopment = () => {
   return (

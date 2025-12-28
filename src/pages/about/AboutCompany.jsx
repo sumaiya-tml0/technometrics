@@ -1,7 +1,7 @@
 import TwoColumnSection from "@/components/common/TwoColumnSection";
 
-import aboutImg1 from "@/assets/images/about/robot.png";
-import aboutImg2 from "@/assets/images/about/our-vision.png";
+import aboutImg1 from "@/assets/images/about/company1.jpg";
+import aboutImg2 from "@/assets/images/about/company2.jpg";
 
 const AboutCompany = () => {
   return (

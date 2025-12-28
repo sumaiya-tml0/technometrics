@@ -1,8 +1,7 @@
 import SolutionSection from "@/components/common/SolutionSection";
 import { Sparkles } from "lucide-react";
 
-// Update with actual image
-import solutionImg from "@/assets/images/about/aboutBanner.png";
+import solutionImg from "@/assets/images/home/digital-transformation-min.png";
 
 const DigitalTransformation = () => {
   return (

@@ -1,8 +1,7 @@
 import SolutionSection from "@/components/common/SolutionSection";
 import { Flame } from "lucide-react";
 
-// Update with actual image
-import solutionImg from "@/assets/images/about/aboutBanner.png";
+import solutionImg from "@/assets/images/home/bms-fire-min.png";
 
 const BMSFire = () => {
   return (

@@ -5,10 +5,10 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc.",
+    name: "Gias Uddin Ahmed",
+    role: "Managing Director, Teletalk Bangladesh LTD",
     content:
-      "Technometrics transformed our entire IT infrastructure. Their expertise in digital transformation helped us achieve 40% efficiency gains.",
+      "Technometrics' hands on approach has enabled us to mitigate many challenges swiftly before they could turn into serious supply chain disasters. In today's dynamic business climate, speed, reliability and efficiency is the key to a successful client vendor relationship.",
     size: "large",
   },
   {

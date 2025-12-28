@@ -11,6 +11,7 @@ import {
 import logo from "@/assets/images/rsz_3company_logo.png";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
+import { ROUTES } from "@/constants/routes";
 
 const Header = () => {
   return (
@@ -79,32 +80,32 @@ const Header = () => {
               </MenubarTrigger>
 
               <MenubarContent className="min-w-70 shadow-lg rounded-lg p-2">
-                <Link to="/server-storage-backup-virtualization">
+                <Link to={ROUTES.SERVER_STORAGE}>
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Server, Storage, Backup & Virtualization
                   </MenubarItem>
                 </Link>
-                <Link to="/datacenter-power-passive-infrastructure">
+                <Link to={ROUTES.DATACENTER}>
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Datacenter, Power & Passive Infrastructure
                   </MenubarItem>
                 </Link>
-                <Link to="/bms-fire-surveillance-automation">
+                <Link to={ROUTES.BMS_FIRE}>
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     BMS, Fire, Surveillance & Automation
                   </MenubarItem>
                 </Link>
-                <Link to="/digital-transformation">
+                <Link to={ROUTES.DIGITAL_TRANSFORMATION}>
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Digital Transformation
                   </MenubarItem>
                 </Link>
-                <Link to="/bespoke-software-development">
+                <Link to={ROUTES.SOFTWARE_DEVELOPMENT}>
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Bespoke Software Development
                   </MenubarItem>
                 </Link>
-                <Link to="/cyber-security">
+                <Link to={ROUTES.CYBERSECURITY}>
                   <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                     Cybersecurity
                   </MenubarItem>
@@ -186,48 +187,37 @@ const Header = () => {
                 </MenubarMenu>
 
                 <MenubarMenu>
-                  <Link to="/solutions">
-                    <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1">
-                      SOLUTIONS
-                      <ChevronDown className="h-4 w-4" />
-                    </MenubarTrigger>
-                  </Link>
+                  <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1">
+                    SOLUTIONS
+                    <ChevronDown className="h-4 w-4" />
+                  </MenubarTrigger>
                   <MenubarContent className="min-w-70 shadow-lg rounded-lg p-2">
-                    <Link
-                      to="/solutions"
-                      state={{ scrollTo: "server-storage" }}
-                    >
+                    <Link to={ROUTES.SERVER_STORAGE}>
                       <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                         Server, Storage, Backup & Virtualization
                       </MenubarItem>
                     </Link>
-                    <Link to="/solutions" state={{ scrollTo: "datacenter" }}>
+                    <Link to={ROUTES.DATACENTER}>
                       <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                         Datacenter, Power & Passive Infrastructure
                       </MenubarItem>
                     </Link>
-                    <Link to="/solutions" state={{ scrollTo: "bms-fire" }}>
+                    <Link to={ROUTES.BMS_FIRE}>
                       <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                         BMS, Fire, Surveillance & Automation
                       </MenubarItem>
                     </Link>
-                    <Link
-                      to="/solutions"
-                      state={{ scrollTo: "digital-transformation" }}
-                    >
+                    <Link to={ROUTES.DIGITAL_TRANSFORMATION}>
                       <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                         Digital Transformation
                       </MenubarItem>
                     </Link>
-                    <Link
-                      to="/solutions"
-                      state={{ scrollTo: "software-development" }}
-                    >
+                    <Link to={ROUTES.SOFTWARE_DEVELOPMENT}>
                       <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                         Bespoke Software Development
                       </MenubarItem>
                     </Link>
-                    <Link to="/solutions" state={{ scrollTo: "cybersecurity" }}>
+                    <Link to={ROUTES.CYBERSECURITY}>
                       <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
                         Cybersecurity
                       </MenubarItem>

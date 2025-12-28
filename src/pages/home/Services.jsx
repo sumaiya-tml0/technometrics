@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { Link } from "react-router";
 import {
   Sparkles,
   Server,
@@ -10,6 +11,7 @@ import {
   Network,
   Headphones,
 } from "lucide-react";
+import { ROUTES } from "@/constants/routes";
 
 import dataTransform from "@/assets/images/home/digital-transformation-min.png";
 import dataCenter from "@/assets/images/home/data-center-min-scaled.jpg";
@@ -25,41 +27,49 @@ const services = [
     icon: Sparkles,
     title: "Digital Transformation",
     image: dataTransform,
+    link: ROUTES.DIGITAL_TRANSFORMATION,
   },
   {
     icon: Server,
-    title: "Datacanter",
+    title: "Datacenter",
     image: dataCenter,
+    link: ROUTES.DATACENTER,
   },
   {
     icon: HardDrive,
-    title: "server, storage, backup & virtualization",
+    title: "Server, Storage, Backup & Virtualization",
     image: server,
+    link: ROUTES.SERVER_STORAGE,
   },
   {
     icon: Flame,
     title: "BMS, Fire, Surveillance & Automation",
     image: fire,
+    link: ROUTES.BMS_FIRE,
   },
   {
     icon: ShieldCheck,
-    title: "Information Security",
+    title: "Cybersecurity",
     image: security,
+    link: ROUTES.CYBERSECURITY,
   },
   {
     icon: Code,
     title: "Bespoke Software Development",
     image: Software,
+    link: ROUTES.SOFTWARE_DEVELOPMENT,
   },
   {
     icon: Network,
     title: "Network Infrastructure",
     image: network,
+    link: ROUTES.SOLUTIONS,
   },
   {
     icon: Headphones,
     title: "Contact Center",
     image: contact,
+    link: ROUTES.SOLUTIONS,
   },
 ];
 
@@ -142,38 +152,40 @@ const ServiceCard = ({ service, index, progress, totalCards, spreadPositions }) 
   return (
     <motion.div
       style={{ x, y, scale, zIndex: totalCards - index }}
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[220px] md:w-[250px] lg:w-[280px] group overflow-hidden rounded-2xl cursor-pointer bg-gray-900 shadow-2xl"
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[220px] md:w-[250px] lg:w-[280px]"
     >
-      {/* Background Image */}
-      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-        <img
-          src={service.image}
-          alt={service.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-300 group-hover:from-[#02b0f0]/90 group-hover:via-[#02b0f0]/60 group-hover:to-[#02b0f0]/30" />
-      </div>
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 text-white">
-        {/* Icon Container */}
-        <div className="mb-3 sm:mb-4 p-3 sm:p-4 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 transition-all duration-300 group-hover:bg-white group-hover:scale-110">
-          <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white transition-colors duration-300 group-hover:text-[#02b0f0]" />
+      <Link to={service.link} className="block group overflow-hidden rounded-2xl cursor-pointer bg-gray-900 shadow-2xl">
+        {/* Background Image */}
+        <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-300 group-hover:from-[#02b0f0]/90 group-hover:via-[#02b0f0]/60 group-hover:to-[#02b0f0]/30" />
         </div>
 
-        {/* Title */}
-        <h3 className="text-base sm:text-lg md:text-xl font-bold text-center transition-transform duration-300 group-hover:-translate-y-1">
-          {service.title}
-        </h3>
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 text-white">
+          {/* Icon Container */}
+          <div className="mb-3 sm:mb-4 p-3 sm:p-4 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 transition-all duration-300 group-hover:bg-white group-hover:scale-110">
+            <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white transition-colors duration-300 group-hover:text-[#02b0f0]" />
+          </div>
 
-        {/* Arrow indicator */}
-        <div className="mt-3 sm:mt-4 opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-          <span className="text-xs sm:text-sm font-medium border-b border-white/50 pb-1">
-            Learn More
-          </span>
+          {/* Title */}
+          <h3 className="text-base sm:text-lg md:text-xl font-bold text-center transition-transform duration-300 group-hover:-translate-y-1">
+            {service.title}
+          </h3>
+
+          {/* Arrow indicator */}
+          <div className="mt-3 sm:mt-4 opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+            <span className="text-xs sm:text-sm font-medium border-b border-white/50 pb-1">
+              Learn More
+            </span>
+          </div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };

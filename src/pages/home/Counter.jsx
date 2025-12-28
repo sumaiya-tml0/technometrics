@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, animate, useInView } from "motion/react";
-import { Users, Briefcase, Award, Clock, Globe, Handshake } from "lucide-react";
+import { Users, Briefcase, Award, Clock, Globe, Handshake, ShieldCheck } from "lucide-react";
 
 const stats = [
   {
@@ -10,7 +10,7 @@ const stats = [
     label: "Years of Experience",
   },
   {
-    icon: Briefcase,
+    icon: ShieldCheck,
     value: 63,
     suffix: "+",
     label: "trusted clients",

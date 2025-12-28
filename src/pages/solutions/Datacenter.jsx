@@ -1,8 +1,7 @@
 import SolutionSection from "@/components/common/SolutionSection";
 import { Building2 } from "lucide-react";
 
-// Update with actual image
-import solutionImg from "@/assets/images/about/aboutBanner.png";
+import solutionImg from "@/assets/images/home/data-center-min-scaled.jpg";
 
 const Datacenter = () => {
   return (
