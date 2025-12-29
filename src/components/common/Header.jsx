@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { ChevronDown, TextAlignJustify } from "lucide-react";
 import {
   Menubar,
@@ -7,6 +7,14 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "../ui/menubar";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 import logo from "@/assets/images/rsz_3company_logo.png";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
@@ -14,6 +22,30 @@ import { Button } from "../ui/button";
 import { ROUTES } from "@/constants/routes";
 
 const Header = () => {
+  const { pathname } = useLocation();
+
+  const solutionPaths = [
+    ROUTES.SERVER_STORAGE,
+    ROUTES.DATACENTER,
+    ROUTES.BMS_FIRE,
+    ROUTES.DIGITAL_TRANSFORMATION,
+    ROUTES.SOFTWARE_DEVELOPMENT,
+    ROUTES.CYBERSECURITY,
+  ];
+
+  const isActive = (path) => pathname === path;
+  const isSolutionsActive = solutionPaths.includes(pathname);
+
+  const baseClasses =
+    "font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#02b0f0] after:transition-all after:duration-300 after:ease-out transition-colors duration-300 !bg-transparent hover:!bg-transparent focus:!bg-transparent data-[state=open]:!bg-transparent";
+  const activeClasses =
+    "!text-[#02b0f0] after:w-full data-[state=open]:!text-[#02b0f0] hover:!text-[#02b0f0] focus:!text-[#02b0f0]";
+  const inactiveClasses =
+    "!text-white after:w-0 hover:after:w-full hover:!text-[#02b0f0] data-[state=open]:!text-white focus:!text-white";
+
+  const dropdownItemClasses =
+    "block px-4 py-2.5 rounded-md cursor-pointer text-sm text-gray-700 relative transition-all duration-200 hover:bg-[#02b0f0]/10 hover:text-[#02b0f0] hover:pl-5 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-0 before:w-[3px] before:bg-[#02b0f0] before:rounded-full before:transition-all before:duration-200 hover:before:h-1/2";
+
   return (
     <header className="absolute top-0 left-0 right-0 z-50 w-full bg-transparent">
       <div className="container mx-auto px-4 lg:px-8">
@@ -28,111 +60,184 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <Menubar
-            className="hidden lg:flex border-none bg-transparent shadow-none h-auto p-0 gap-1
-          
-          "
-          >
-            <MenubarMenu>
-              <Link to="/">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
-                  HOME
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
+          <NavigationMenu className="hidden lg:flex">
+            <NavigationMenuList className="gap-1">
+              {/* ABOUT US */}
+              <NavigationMenuItem>
+                <Link to="/about-us">
+                  <NavigationMenuTrigger
+                    className={`${baseClasses} inline-flex items-center gap-1 ${
+                      isActive("/about-us") ? activeClasses : inactiveClasses
+                    }`}
+                  >
+                    ABOUT US
+                  </NavigationMenuTrigger>
+                </Link>
+                <NavigationMenuContent>
+                  <ul className="w-55 p-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/about-us"
+                          state={{ scrollTo: "our-company" }}
+                          className={dropdownItemClasses}
+                        >
+                          Our Company
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/about-us"
+                          state={{ scrollTo: "journey" }}
+                          className={dropdownItemClasses}
+                        >
+                          Our Journey
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/about-us"
+                          state={{ scrollTo: "affiliations" }}
+                          className={dropdownItemClasses}
+                        >
+                          Our OEM Affiliations
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/about-us"
+                          state={{ scrollTo: "clients" }}
+                          className={dropdownItemClasses}
+                        >
+                          Our Clients
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/about-us"
+                          state={{ scrollTo: "sustainability" }}
+                          className={dropdownItemClasses}
+                        >
+                          Sustainability
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-            <MenubarMenu>
-              <Link to="/about-us">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white">
-                  ABOUT US
-                  <ChevronDown className="h-4 w-4" />
-                </MenubarTrigger>
-              </Link>
-              <MenubarContent className="shadow-lg rounded-lg p-2">
-                <Link to="/about-us" state={{ scrollTo: "our-company" }}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Our Company
-                  </MenubarItem>
-                </Link>
-                <Link to="/about-us" state={{ scrollTo: "journey" }}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Our Journey
-                  </MenubarItem>
-                </Link>
-                <Link to="/about-us" state={{ scrollTo: "affiliations" }}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Our OEM Affiliations
-                  </MenubarItem>
-                </Link>
-                <Link to="/about-us" state={{ scrollTo: "clients" }}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Our Clients
-                  </MenubarItem>
-                </Link>
-                <Link to="/about-us" state={{ scrollTo: "sustainability" }}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Sustainability
-                  </MenubarItem>
-                </Link>
-              </MenubarContent>
-            </MenubarMenu>
+              {/* SOLUTIONS */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={`${baseClasses} inline-flex items-center gap-1 ${
+                    isSolutionsActive ? activeClasses : inactiveClasses
+                  }`}
+                >
+                  SOLUTIONS
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="w-[320px] p-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={ROUTES.SERVER_STORAGE}
+                          className={dropdownItemClasses}
+                        >
+                          Server, Storage, Backup & Virtualization
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={ROUTES.DATACENTER}
+                          className={dropdownItemClasses}
+                        >
+                          Datacenter, Power & Passive Infrastructure
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={ROUTES.BMS_FIRE}
+                          className={dropdownItemClasses}
+                        >
+                          BMS, Fire, Surveillance & Automation
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={ROUTES.DIGITAL_TRANSFORMATION}
+                          className={dropdownItemClasses}
+                        >
+                          Digital Transformation
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={ROUTES.SOFTWARE_DEVELOPMENT}
+                          className={dropdownItemClasses}
+                        >
+                          Bespoke Software Development
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={ROUTES.CYBERSECURITY}
+                          className={dropdownItemClasses}
+                        >
+                          Cybersecurity
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-            <MenubarMenu>
-              <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1 text-white">
-                SOLUTIONS
-                <ChevronDown className="h-4 w-4" />
-              </MenubarTrigger>
+              {/* CONTACT US */}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    to={ROUTES.CONTACT}
+                    className={`${baseClasses} ${
+                      isActive(ROUTES.CONTACT) ? activeClasses : inactiveClasses
+                    }`}
+                  >
+                    CONTACT US
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
 
-              <MenubarContent className="min-w-70 shadow-lg rounded-lg p-2">
-                <Link to={ROUTES.SERVER_STORAGE}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Server, Storage, Backup & Virtualization
-                  </MenubarItem>
-                </Link>
-                <Link to={ROUTES.DATACENTER}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Datacenter, Power & Passive Infrastructure
-                  </MenubarItem>
-                </Link>
-                <Link to={ROUTES.BMS_FIRE}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    BMS, Fire, Surveillance & Automation
-                  </MenubarItem>
-                </Link>
-                <Link to={ROUTES.DIGITAL_TRANSFORMATION}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Digital Transformation
-                  </MenubarItem>
-                </Link>
-                <Link to={ROUTES.SOFTWARE_DEVELOPMENT}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Bespoke Software Development
-                  </MenubarItem>
-                </Link>
-                <Link to={ROUTES.CYBERSECURITY}>
-                  <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                    Cybersecurity
-                  </MenubarItem>
-                </Link>
-              </MenubarContent>
-            </MenubarMenu>
-
-            <MenubarMenu>
-              <Link to={ROUTES.CONTACT}>
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
-                  CONTACT US
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
-
-            <MenubarMenu>
-              <Link to="/careers">
-                <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
-                  CAREER
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
-          </Menubar>
+              {/* CAREER */}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    to="/careers"
+                    className={`${baseClasses} ${
+                      isActive("/careers") ? activeClasses : inactiveClasses
+                    }`}
+                  >
+                    CAREER
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
           {/* Mobile Menu Button */}
           <Sheet className="lg:hidden md:flex">
@@ -144,107 +249,143 @@ const Header = () => {
                 <TextAlignJustify />
               </Button>
             </SheetTrigger>
-            <SheetContent className="border-none">
-              <Menubar className="flex-col items-start border-none bg-transparent shadow-none h-auto pt-10 gap-1">
-                <MenubarMenu>
-                  <Link to="/">
-                    <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer">
-                      HOME
-                    </MenubarTrigger>
-                  </Link>
-                </MenubarMenu>
+            <SheetContent className="border-none bg-linear-to-b from-slate-900 to-slate-800 p-0 overflow-y-auto w-full sm:w-[350px] sm:max-w-[350px]">
+              {/* Mobile Menu Header */}
+              <div className="p-6 border-b border-white/10">
+                <Link to="/">
+                  <img
+                    src={logo}
+                    alt="Technometrics"
+                    className="h-5 w-auto object-contain"
+                  />
+                </Link>
+              </div>
 
-                <MenubarMenu>
-                  <Link to="/about-us">
-                    <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1">
-                      ABOUT US
-                      <ChevronDown className="h-4 w-4" />
+              {/* Mobile Navigation */}
+              <nav className="p-2">
+                <Menubar className="flex-col items-stretch border-none bg-transparent shadow-none h-auto gap-2 w-full">
+                  {/* ABOUT US */}
+                  <MenubarMenu>
+                    <MenubarTrigger
+                      className={`w-full font-semibold text-sm tracking-wide px-4 py-3 cursor-pointer inline-flex items-center justify-between rounded-lg transition-all duration-200 focus:bg-white/5 data-[state=open]:bg-white/5 ${
+                        isActive("/about-us")
+                          ? "text-[#02b0f0] bg-[#02b0f0]/10"
+                          : "text-white hover:bg-white/5 hover:text-[#02b0f0]"
+                      }`}
+                    >
+                      <Link to="/about-us" className="flex-1 text-left">
+                        ABOUT US
+                      </Link>
+                      <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                     </MenubarTrigger>
-                  </Link>
-                  <MenubarContent className="shadow-lg rounded-lg p-2">
-                    <Link to="/about-us" state={{ scrollTo: "our-company" }}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Our Company
-                      </MenubarItem>
-                    </Link>
-                    <Link to="/about-us" state={{ scrollTo: "journey" }}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Our Journey
-                      </MenubarItem>
-                    </Link>
-                    <Link to="/about-us" state={{ scrollTo: "affiliations" }}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Our OEM Affiliations
-                      </MenubarItem>
-                    </Link>
-                    <Link to="/about-us" state={{ scrollTo: "clients" }}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Our Clients
-                      </MenubarItem>
-                    </Link>
-                    <Link to="/about-us" state={{ scrollTo: "sustainability" }}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Sustainability
-                      </MenubarItem>
-                    </Link>
-                  </MenubarContent>
-                </MenubarMenu>
+                    <MenubarContent className="bg-slate-800 border-white/10 shadow-xl rounded-lg p-2 min-w-[200px]">
+                      <Link to="/about-us" state={{ scrollTo: "our-company" }}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Our Company
+                        </MenubarItem>
+                      </Link>
+                      <Link to="/about-us" state={{ scrollTo: "journey" }}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Our Journey
+                        </MenubarItem>
+                      </Link>
+                      <Link to="/about-us" state={{ scrollTo: "affiliations" }}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Our OEM Affiliations
+                        </MenubarItem>
+                      </Link>
+                      <Link to="/about-us" state={{ scrollTo: "clients" }}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Our Clients
+                        </MenubarItem>
+                      </Link>
+                      <Link to="/about-us" state={{ scrollTo: "sustainability" }}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Sustainability
+                        </MenubarItem>
+                      </Link>
+                    </MenubarContent>
+                  </MenubarMenu>
 
-                <MenubarMenu>
-                  <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer inline-flex items-center gap-1">
-                    SOLUTIONS
-                    <ChevronDown className="h-4 w-4" />
-                  </MenubarTrigger>
-                  <MenubarContent className="min-w-70 shadow-lg rounded-lg p-2">
-                    <Link to={ROUTES.SERVER_STORAGE}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Server, Storage, Backup & Virtualization
-                      </MenubarItem>
-                    </Link>
-                    <Link to={ROUTES.DATACENTER}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Datacenter, Power & Passive Infrastructure
-                      </MenubarItem>
-                    </Link>
-                    <Link to={ROUTES.BMS_FIRE}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        BMS, Fire, Surveillance & Automation
-                      </MenubarItem>
-                    </Link>
-                    <Link to={ROUTES.DIGITAL_TRANSFORMATION}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Digital Transformation
-                      </MenubarItem>
-                    </Link>
-                    <Link to={ROUTES.SOFTWARE_DEVELOPMENT}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Bespoke Software Development
-                      </MenubarItem>
-                    </Link>
-                    <Link to={ROUTES.CYBERSECURITY}>
-                      <MenubarItem className="px-4 py-2.5 hover:bg-gray-50 rounded-md cursor-pointer">
-                        Cybersecurity
-                      </MenubarItem>
-                    </Link>
-                  </MenubarContent>
-                </MenubarMenu>
-
-                <MenubarMenu>
-                  <Link to={ROUTES.CONTACT}>
-                    <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer">
-                      CONTACT US
+                  {/* SOLUTIONS */}
+                  <MenubarMenu>
+                    <MenubarTrigger
+                      className={`w-full font-semibold text-sm tracking-wide px-4 py-3 cursor-pointer inline-flex items-center justify-between rounded-lg transition-all duration-200 focus:bg-white/5 data-[state=open]:bg-white/5 ${
+                        isSolutionsActive
+                          ? "text-[#02b0f0] bg-[#02b0f0]/10"
+                          : "text-white hover:bg-white/5 hover:text-[#02b0f0]"
+                      }`}
+                    >
+                      SOLUTIONS
+                      <ChevronDown className="h-4 w-4 transition-transform duration-200 data-[state=open]:rotate-180" />
                     </MenubarTrigger>
-                  </Link>
-                </MenubarMenu>
+                    <MenubarContent className="bg-slate-800 border-white/10 shadow-xl rounded-lg p-2 min-w-[280px]">
+                      <Link to={ROUTES.SERVER_STORAGE}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Server, Storage, Backup & Virtualization
+                        </MenubarItem>
+                      </Link>
+                      <Link to={ROUTES.DATACENTER}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Datacenter, Power & Passive Infrastructure
+                        </MenubarItem>
+                      </Link>
+                      <Link to={ROUTES.BMS_FIRE}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          BMS, Fire, Surveillance & Automation
+                        </MenubarItem>
+                      </Link>
+                      <Link to={ROUTES.DIGITAL_TRANSFORMATION}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Digital Transformation
+                        </MenubarItem>
+                      </Link>
+                      <Link to={ROUTES.SOFTWARE_DEVELOPMENT}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Bespoke Software Development
+                        </MenubarItem>
+                      </Link>
+                      <Link to={ROUTES.CYBERSECURITY}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Cybersecurity
+                        </MenubarItem>
+                      </Link>
+                    </MenubarContent>
+                  </MenubarMenu>
 
-                <MenubarMenu>
-                  <Link to="/careers">
-                    <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer">
-                      CAREER
-                    </MenubarTrigger>
-                  </Link>
-                </MenubarMenu>
-              </Menubar>
+                  {/* CONTACT US */}
+                  <MenubarMenu>
+                    <Link to={ROUTES.CONTACT} className="w-full">
+                      <MenubarTrigger
+                        className={`w-full font-semibold text-sm tracking-wide px-4 py-3 cursor-pointer rounded-lg transition-all duration-200 focus:bg-white/5 ${
+                          isActive(ROUTES.CONTACT)
+                            ? "text-[#02b0f0] bg-[#02b0f0]/10"
+                            : "text-white hover:bg-white/5 hover:text-[#02b0f0]"
+                        }`}
+                      >
+                        CONTACT US
+                      </MenubarTrigger>
+                    </Link>
+                  </MenubarMenu>
+
+                  {/* CAREER */}
+                  <MenubarMenu>
+                    <Link to="/careers" className="w-full">
+                      <MenubarTrigger
+                        className={`w-full font-semibold text-sm tracking-wide px-4 py-3 cursor-pointer rounded-lg transition-all duration-200 focus:bg-white/5 ${
+                          isActive("/careers")
+                            ? "text-[#02b0f0] bg-[#02b0f0]/10"
+                            : "text-white hover:bg-white/5 hover:text-[#02b0f0]"
+                        }`}
+                      >
+                        CAREER
+                      </MenubarTrigger>
+                    </Link>
+                  </MenubarMenu>
+                </Menubar>
+
+               
+              </nav>
             </SheetContent>
           </Sheet>
         </div>
