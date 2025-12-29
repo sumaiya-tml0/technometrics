@@ -23,12 +23,16 @@ const Header = () => {
             <img
               src={logo}
               alt="Technometrics"
-              className="h-6 w-auto object-contain"
+              className="h-6 md:h-8 w-auto object-contain"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <Menubar className="hidden lg:flex border-none bg-transparent shadow-none h-auto p-0 gap-1">
+          <Menubar
+            className="hidden lg:flex border-none bg-transparent shadow-none h-auto p-0 gap-1
+          
+          "
+          >
             <MenubarMenu>
               <Link to="/">
                 <MenubarTrigger className="font-semibold text-sm tracking-wide px-4 py-2 cursor-pointer text-white">
@@ -135,7 +139,7 @@ const Header = () => {
             <SheetTrigger asChild>
               <Button
                 variant="outline"
-                className="lg:hidden md:flex border-[#02b0f0] text-[#02b0f0] hover:bg-white/10 hover:text-white"
+                className="lg:hidden bg-transparent md:flex border-[#02b0f0] text-[#02b0f0] hover:bg-white/10 hover:text-white"
               >
                 <TextAlignJustify />
               </Button>

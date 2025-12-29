@@ -3,24 +3,23 @@ import { Outlet } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import Header from "@/components/common/Header";
 import Footer from "../components/common/Footer";
-import GetTouch from "@/pages/home/GetTouch";
 
 import logo from "@/assets/logo.png";
 import Lenis from "lenis";
-import 'lenis/dist/lenis.css'
+import "lenis/dist/lenis.css";
 const MainLayout = () => {
   const [loading, setLoading] = useState(true);
 
   // Initialize Lenis
-const lenis = new Lenis();
+  const lenis = new Lenis();
 
-// Use requestAnimationFrame to continuously update the scroll
-function raf(time) {
-  lenis.raf(time);
+  // Use requestAnimationFrame to continuously update the scroll
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
   requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -97,7 +96,6 @@ requestAnimationFrame(raf);
       >
         <Header />
         <Outlet />
-        <GetTouch />
         <Footer />
       </motion.div>
     </>
