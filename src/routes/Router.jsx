@@ -13,6 +13,7 @@ import DigitalTransformation from "@/pages/solutions/DigitalTransformation";
 import SoftwareDevelopment from "@/pages/solutions/SoftwareDevelopment";
 import Cybersecurity from "@/pages/solutions/Cybersecurity";
 import ContactUs from "@/pages/contact/ContactUs";
+import Careers from "@/pages/careers/Careers";
 import ErrorPage from "@/pages/error/ErrorPage";
 
 export const router = createBrowserRouter([
@@ -64,6 +65,11 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.CONTACT,
         element: <ContactUs />,
+      },
+      // Careers page
+      {
+        path: ROUTES.CAREERS,
+        element: <Careers />,
       },
     ],
   },

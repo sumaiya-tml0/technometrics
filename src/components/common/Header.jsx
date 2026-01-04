@@ -227,9 +227,9 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    to="/careers"
+                    to={ROUTES.CAREERS}
                     className={`${baseClasses} ${
-                      isActive("/careers") ? activeClasses : inactiveClasses
+                      isActive(ROUTES.CAREERS) ? activeClasses : inactiveClasses
                     }`}
                   >
                     CAREER
@@ -370,10 +370,10 @@ const Header = () => {
 
                   {/* CAREER */}
                   <MenubarMenu>
-                    <Link to="/careers" className="w-full">
+                    <Link to={ROUTES.CAREERS} className="w-full">
                       <MenubarTrigger
                         className={`w-full font-semibold text-sm tracking-wide px-4 py-3 cursor-pointer rounded-lg transition-all duration-200 focus:bg-white/5 ${
-                          isActive("/careers")
+                          isActive(ROUTES.CAREERS)
                             ? "text-[#02b0f0] bg-[#02b0f0]/10"
                             : "text-white hover:bg-white/5 hover:text-[#02b0f0]"
                         }`}

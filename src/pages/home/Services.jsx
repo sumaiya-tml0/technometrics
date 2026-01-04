@@ -67,7 +67,7 @@ const services = [
   },
   {
     icon: Headphones,
-    title: "Contact Center",
+    title: "Robotic Process Automation",
     image: contact,
     link: ROUTES.SOLUTIONS,
   },
