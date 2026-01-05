@@ -3,52 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-import cisco from "@/assets/images/about/cisco.png";
-import commvault from "@/assets/images/about/commvault.png";
-import dell from "@/assets/images/about/dell_Technologies.png";
-import fuji from "@/assets/images/about/Fuji_Electric.png";
-import hpe from "@/assets/images/about/HPE.png";
-import ibm from "@/assets/images/about/IBM.png";
-import logrythm from "@/assets/images/about/logrythm.png";
-import micro from "@/assets/images/about/microfocus.png";
-import nutanix from "@/assets/images/about/nutanix.png";
-import redhat from "@/assets/images/about/redhat.png";
-import seceon from "@/assets/images/about/seceon.png";
-import siren from "@/assets/images/about/siren.png";
-import trend from "@/assets/images/about/trend-micro.png";
-import vmware from "@/assets/images/about/vmware.png";
-import juniper from "@/assets/images/about/juniper.png";
-import dsc from "@/assets/images/about/dsc.jpg";
-import comscope from "@/assets/images/about/Commscope.jpg";
-import rosenberger from "@/assets/images/about/Rosenberger.png";
-import legrand from "@/assets/images/about/Legrand.png";
-import irem from "@/assets/images/about/Irem.png";
-import schneider from "@/assets/images/about/Schneider.png";
+import affiliations from "../../../public/partners.json";
 
 const Affiliations = () => {
-  const affiliations = [
-    cisco,
-    commvault,
-    dell,
-    fuji,
-    hpe,
-    ibm,
-    logrythm,
-    micro,
-    nutanix,
-    redhat,
-    seceon,
-    siren,
-    trend,
-    vmware,
-    juniper,
-    dsc,
-    comscope,
-    rosenberger,
-    legrand,
-    irem,
-    schneider,
-  ];
 
   return (
     <section id="affiliations" className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16">

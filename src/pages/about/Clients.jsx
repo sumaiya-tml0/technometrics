@@ -2,60 +2,9 @@ import { motion } from "motion/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-
-// Import client logos - update these with actual client images
-import client1 from "@/assets/images/about/rsz_ansar.png";
-import client2 from "@/assets/images/about/rsz_army.png";
-import client3 from "@/assets/images/about/rsz_navy.png";
-import client4 from "@/assets/images/about/rsz_police.png";
-import client5 from "@/assets/images/about/rsz_saadatia.png";
-import client6 from "@/assets/images/about/rsz_teletalk.png";
-import client7 from "@/assets/images/about/rsz_cupcake.png";
-import client8 from "@/assets/images/about/rsz_fareast.png";
-import client9 from "@/assets/images/about/rsz_mediacom.png";
-import client10 from "@/assets/images/about/rsz_1siaa_logo.png";
-import client11 from "@/assets/images/about/rsz_bumble.png";
-import client12 from "@/assets/images/about/rsz_kbd.png";
-import client13 from "@/assets/images/about/rsz_picard.jpg";
-import client14 from "@/assets/images/about/dbbl-logo.png";
-import client15 from "@/assets/images/about/moulana.png";
-import client16 from "@/assets/images/about/mango.png";
-import client17 from "@/assets/images/about/dmp.jpg";
-import client18 from "@/assets/images/about/jbl.jpg";
-import client19 from "@/assets/images/about/medtronic.png";
-
-import client20 from "@/assets/images/about/union.png";
-import client21 from "@/assets/images/about/daffodil.png";
-import client22 from "@/assets/images/about/dhaka-bank.png";
-import client23 from "@/assets/images/about/hsbc-logo.png";
+import imageList from "../../../public/client.json";
 
 const Clients = () => {
-  const clients = [
-    client1,
-    client2,
-    client3,
-    client4,
-    client5,
-    client6,
-    client7,
-    client8,
-    client9,
-    client10,
-    client11,
-    client12,
-    client13,
-    client14,
-    client15,
-    client16,
-    client17,
-    client18,
-    client19,
-    client20,
-    client21,
-    client22,
-    client23,
-  ];
-
   return (
     <section
       id="clients"
@@ -125,7 +74,7 @@ const Clients = () => {
             }}
             className="clients-swiper"
           >
-            {clients?.map((client, index) => (
+            {imageList?.map((client, index) => (
               <SwiperSlide key={index}>
                 <div className="flex items-center justify-center h-20 sm:h-24 lg:h-28 p-4 border border-gray-700 rounded-xl bg-gray-800/50 hover:bg-gray-800 hover:border-[#02b0f0]/50 transition-all duration-300">
                   <img
