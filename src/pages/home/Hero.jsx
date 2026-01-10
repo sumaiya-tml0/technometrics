@@ -1,11 +1,9 @@
 import React from "react";
 import { motion } from "motion/react";
 
-import heroBg from "@/assets/images/home/heroBg.jpg";
+import heroBg from "@/assets/images/home/hero.jpeg";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-
-
 
 const Hero = () => {
   return (
@@ -14,7 +12,7 @@ const Hero = () => {
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/80" />
+      <div className="absolute inset-0 bg-black/75" />
 
       {/* Animated background accent */}
       <motion.div
@@ -25,7 +23,6 @@ const Hero = () => {
           opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
-      
           duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
@@ -39,7 +36,6 @@ const Hero = () => {
           opacity: [0.5, 0.3, 0.5],
         }}
         transition={{
-     
           duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
@@ -62,7 +58,7 @@ const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay:  0.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-white/80 w-full sm:w-3/4 lg:w-2/3 xl:w-2/5 mx-auto lg:mx-0"
           >
             We provide end-to-end information technology services built on

@@ -7,13 +7,16 @@ import Home from "@/pages/home/Home";
 import AboutLayout from "@/pages/about/AboutLayout";
 import SolutionsLayout from "@/pages/solutions/SolutionsLayout";
 import ServerStorage from "@/pages/solutions/ServerStorage";
+import NetworkIPT from "@/pages/solutions/NetworkIPT";
 import Datacenter from "@/pages/solutions/Datacenter";
+import BMSSurveillance from "@/pages/solutions/BMSSurveillance";
 import BMSFire from "@/pages/solutions/BMSFire";
-import DigitalTransformation from "@/pages/solutions/DigitalTransformation";
-import SoftwareDevelopment from "@/pages/solutions/SoftwareDevelopment";
+import RPA from "@/pages/solutions/RPA";
 import Cybersecurity from "@/pages/solutions/Cybersecurity";
+import SoftwareDevelopment from "@/pages/solutions/SoftwareDevelopment";
 import ContactUs from "@/pages/contact/ContactUs";
 import Careers from "@/pages/careers/Careers";
+import JobDetail from "@/pages/careers/JobDetail";
 import ErrorPage from "@/pages/error/ErrorPage";
 
 export const router = createBrowserRouter([
@@ -42,24 +45,32 @@ export const router = createBrowserRouter([
         element: <ServerStorage />,
       },
       {
+        path: ROUTES.NETWORK_IPT,
+        element: <NetworkIPT />,
+      },
+      {
         path: ROUTES.DATACENTER,
         element: <Datacenter />,
+      },
+      {
+        path: ROUTES.BMS_SURVEILLANCE,
+        element: <BMSSurveillance />,
       },
       {
         path: ROUTES.BMS_FIRE,
         element: <BMSFire />,
       },
       {
-        path: ROUTES.DIGITAL_TRANSFORMATION,
-        element: <DigitalTransformation />,
-      },
-      {
-        path: ROUTES.SOFTWARE_DEVELOPMENT,
-        element: <SoftwareDevelopment />,
+        path: ROUTES.RPA,
+        element: <RPA />,
       },
       {
         path: ROUTES.CYBERSECURITY,
         element: <Cybersecurity />,
+      },
+      {
+        path: ROUTES.SOFTWARE_DEVELOPMENT,
+        element: <SoftwareDevelopment />,
       },
       // Contact page
       {
@@ -70,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.CAREERS,
         element: <Careers />,
+      },
+      {
+        path: ROUTES.JOB_DETAIL,
+        element: <JobDetail />,
       },
     ],
   },

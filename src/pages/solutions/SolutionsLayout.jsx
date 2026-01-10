@@ -4,7 +4,6 @@ import { useScrollToSection } from "@/hooks/useScrollToSection";
 import ServerStorage from "./ServerStorage";
 import Datacenter from "./Datacenter";
 import BMSFire from "./BMSFire";
-import DigitalTransformation from "./DigitalTransformation";
 import SoftwareDevelopment from "./SoftwareDevelopment";
 import Cybersecurity from "./Cybersecurity";
 

@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "motion/react";
-import { Quote } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const testimonials = [
   {
@@ -27,37 +34,9 @@ const testimonials = [
       "Their cybersecurity team identified vulnerabilities we didn't know existed. Professional and thorough.",
     size: "medium",
   },
-  {
-    id: 4,
-    name: "David Park",
-    role: "Manager, Global Logistics",
-    content:
-      "The network infrastructure they built for us handles millions of transactions seamlessly. Exceptional work!",
-    size: "medium",
-  },
-  {
-    id: 5,
-    name: "Amanda Foster",
-    role: "VP Operations, FinCore",
-    content:
-      "From consultation to implementation, the team exceeded our expectations at every step.",
-    size: "small",
-  },
 ];
 
 const TestimonialCard = ({ testimonial, index }) => {
-  const sizeClasses = {
-    small: "col-span-1 row-span-1",
-    medium: "col-span-1 md:col-span-1 row-span-1",
-    large: "col-span-1 md:col-span-2 row-span-1",
-  };
-
-  const cardHeights = {
-    small: "min-h-[200px]",
-    medium: "min-h-[220px]",
-    large: "min-h-[200px]",
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -69,18 +48,16 @@ const TestimonialCard = ({ testimonial, index }) => {
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className={`${sizeClasses[testimonial.size]} ${
-        cardHeights[testimonial.size]
-      } bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between relative overflow-hidden group`}
+      className="bg-white rounded-2xl p-6 shadow-lg transition-shadow duration-300 flex flex-col justify-between relative overflow-hidden group h-full min-h-[280px] sm:min-h-[300px]"
     >
       {/* Decorative gradient */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#02b0f0]/10 to-transparent rounded-bl-full" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-bl from-[#02b0f0]/10 to-transparent rounded-bl-full" />
 
       {/* Quote icon */}
       <Quote className="w-8 h-8 text-[#02b0f0]/30 mb-3 group-hover:text-[#02b0f0]/50 transition-colors duration-300" />
 
       {/* Content */}
-      <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-grow">
+      <p className="text-gray-600 text-sm md:text-xl leading-relaxed grow text-center">
         "{testimonial.content}"
       </p>
 
@@ -92,7 +69,7 @@ const TestimonialCard = ({ testimonial, index }) => {
 
       {/* Animated accent line */}
       <motion.div
-        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#02b0f0] to-[#02b0f0]/50"
+        className="absolute bottom-0 left-0 h-1 bg-linear-to-r from-[#02b0f0] to-[#02b0f0]/50"
         initial={{ width: 0 }}
         whileInView={{ width: "100%" }}
         viewport={{ once: true }}
@@ -103,6 +80,8 @@ const TestimonialCard = ({ testimonial, index }) => {
 };
 
 const Testimonials = () => {
+  const swiperRef = useRef(null);
+
   return (
     <section className="py-16 md:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -129,16 +108,42 @@ const Testimonials = () => {
           </h2>
         </motion.div>
 
-        {/* Testimonials Grid - Bento style */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-20">
-          {/* Row 1 */}
-          <TestimonialCard testimonial={testimonials[0]} index={0} />
-          <TestimonialCard testimonial={testimonials[1]} index={1} />
+        <div className="max-w-4xl mx-auto relative">
+          <Swiper
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {testimonials?.map((testimonial, index) => (
+              <SwiperSlide key={testimonial.id} className="h-auto">
+                <TestimonialCard testimonial={testimonial} index={index} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-          {/* Row 2 */}
-          <TestimonialCard testimonial={testimonials[2]} index={2} />
-          <TestimonialCard testimonial={testimonials[3]} index={3} />
-          <TestimonialCard testimonial={testimonials[4]} index={4} />
+          {/* Navigation Handlers - Bottom Right */}
+          <div className="flex items-center justify-end gap-3 mt-6">
+            <button
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[#02b0f0] flex items-center justify-center text-[#02b0f0] hover:bg-[#02b0f0] hover:text-white transition-all duration-300 cursor-pointer"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+            <button
+              onClick={() => swiperRef.current?.slideNext()}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#02b0f0] flex items-center justify-center text-white hover:bg-[#02b0f0]/80 transition-all duration-300 cursor-pointer"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

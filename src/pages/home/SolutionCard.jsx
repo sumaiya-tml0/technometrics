@@ -18,9 +18,9 @@ const SolutionCard = ({ solution, index }) => {
       className="group"
     >
       <Link to={solution.link}>
-        <div className="relative bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#02b0f0]/30 transition-all duration-300 h-[200px] overflow-hidden">
+        <div className="relative bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#02b0f0]/30 transition-all duration-300 h-[160px] sm:h-[180px] lg:h-[180px] overflow-hidden">
           {/* Background Gradient on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#02b0f0]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-br from-[#02b0f0]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           <div className="relative z-10">
             {/* Icon */}
@@ -29,7 +29,7 @@ const SolutionCard = ({ solution, index }) => {
             </div>
 
             {/* Content */}
-            <h4 className="text-base md:text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#02b0f0] transition-colors duration-300">
+            <h4 className=" font-semibold text-gray-900 mb-2 group-hover:text-[#02b0f0] transition-colors duration-300">
               {solution.title}
             </h4>
 

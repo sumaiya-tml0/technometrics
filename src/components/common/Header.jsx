@@ -26,11 +26,13 @@ const Header = () => {
 
   const solutionPaths = [
     ROUTES.SERVER_STORAGE,
+    ROUTES.NETWORK_IPT,
     ROUTES.DATACENTER,
+    ROUTES.BMS_SURVEILLANCE,
     ROUTES.BMS_FIRE,
-    ROUTES.DIGITAL_TRANSFORMATION,
-    ROUTES.SOFTWARE_DEVELOPMENT,
+    ROUTES.RPA,
     ROUTES.CYBERSECURITY,
+    ROUTES.SOFTWARE_DEVELOPMENT,
   ];
 
   const isActive = (path) => pathname === path;
@@ -158,6 +160,16 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
+                          to={ROUTES.NETWORK_IPT}
+                          className={dropdownItemClasses}
+                        >
+                          Network, Security & IPT Contact Center
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
                           to={ROUTES.DATACENTER}
                           className={dropdownItemClasses}
                         >
@@ -168,30 +180,30 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
+                          to={ROUTES.BMS_SURVEILLANCE}
+                          className={dropdownItemClasses}
+                        >
+                          Building Management & Security Surveillance
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
                           to={ROUTES.BMS_FIRE}
                           className={dropdownItemClasses}
                         >
-                          BMS, Fire, Surveillance & Automation
+                          Fire Protection & Detection
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          to={ROUTES.DIGITAL_TRANSFORMATION}
+                          to={ROUTES.RPA}
                           className={dropdownItemClasses}
                         >
-                          Digital Transformation
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          to={ROUTES.SOFTWARE_DEVELOPMENT}
-                          className={dropdownItemClasses}
-                        >
-                          Bespoke Software Development
+                          Robotic Process Automation
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -202,6 +214,16 @@ const Header = () => {
                           className={dropdownItemClasses}
                         >
                           Cybersecurity
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={ROUTES.SOFTWARE_DEVELOPMENT}
+                          className={dropdownItemClasses}
+                        >
+                          AI/ML & Bespoke Software
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -299,7 +321,10 @@ const Header = () => {
                           Our Clients
                         </MenubarItem>
                       </Link>
-                      <Link to="/about-us" state={{ scrollTo: "sustainability" }}>
+                      <Link
+                        to="/about-us"
+                        state={{ scrollTo: "sustainability" }}
+                      >
                         <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
                           Sustainability
                         </MenubarItem>
@@ -325,29 +350,39 @@ const Header = () => {
                           Server, Storage, Backup & Virtualization
                         </MenubarItem>
                       </Link>
+                      <Link to={ROUTES.NETWORK_IPT}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Network, Security & IPT Contact Center
+                        </MenubarItem>
+                      </Link>
                       <Link to={ROUTES.DATACENTER}>
                         <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
                           Datacenter, Power & Passive Infrastructure
                         </MenubarItem>
                       </Link>
+                      <Link to={ROUTES.BMS_SURVEILLANCE}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          Building Management & Security Surveillance
+                        </MenubarItem>
+                      </Link>
                       <Link to={ROUTES.BMS_FIRE}>
                         <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
-                          BMS, Fire, Surveillance & Automation
+                          Fire Protection & Detection
                         </MenubarItem>
                       </Link>
-                      <Link to={ROUTES.DIGITAL_TRANSFORMATION}>
+                      <Link to={ROUTES.RPA}>
                         <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
-                          Digital Transformation
-                        </MenubarItem>
-                      </Link>
-                      <Link to={ROUTES.SOFTWARE_DEVELOPMENT}>
-                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
-                          Bespoke Software Development
+                          Robotic Process Automation
                         </MenubarItem>
                       </Link>
                       <Link to={ROUTES.CYBERSECURITY}>
                         <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
                           Cybersecurity
+                        </MenubarItem>
+                      </Link>
+                      <Link to={ROUTES.SOFTWARE_DEVELOPMENT}>
+                        <MenubarItem className="px-4 py-3 text-white/80 hover:text-[#02b0f0] hover:bg-[#02b0f0]/10 rounded-md cursor-pointer transition-all duration-200 focus:bg-[#02b0f0]/10 focus:text-[#02b0f0]">
+                          AI/ML & Bespoke Software
                         </MenubarItem>
                       </Link>
                     </MenubarContent>
@@ -383,8 +418,6 @@ const Header = () => {
                     </Link>
                   </MenubarMenu>
                 </Menubar>
-
-               
               </nav>
             </SheetContent>
           </Sheet>

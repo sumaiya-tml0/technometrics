@@ -5,7 +5,7 @@ import { Users, Briefcase, Award, Clock, Globe, Handshake, ShieldCheck } from "l
 const stats = [
   {
     icon: Briefcase,
-    value: 4,
+    value: 8,
     suffix: "+",
     label: "Years of Experience",
   },

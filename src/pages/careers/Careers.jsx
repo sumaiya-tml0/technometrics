@@ -1,144 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router";
 import { motion } from "motion/react";
 import {
   Briefcase,
   MapPin,
   Clock,
-  ChevronDown,
-  ChevronUp,
   Send,
   Users,
   TrendingUp,
   Heart,
   GraduationCap,
+  ArrowRight,
 } from "lucide-react";
 import SolutionBanner from "@/components/common/SolutionBanner";
 import { Button } from "@/components/ui/button";
+import { jobOpenings } from "@/data/jobs";
 
 import careerBg from "@/assets/images/home/contact-center-min.png";
-
-const jobOpenings = [
-  {
-    id: 1,
-    title: "Senior Software Engineer",
-    department: "Engineering",
-    location: "Dhaka, Bangladesh",
-    type: "Full-time",
-    experience: "5+ years",
-    description:
-      "We are looking for a Senior Software Engineer to join our development team. You will be responsible for designing, developing, and maintaining high-quality software solutions.",
-    requirements: [
-      "Bachelor's degree in Computer Science or related field",
-      "5+ years of experience in software development",
-      "Proficiency in JavaScript, React, Node.js",
-      "Experience with cloud platforms (AWS/Azure/GCP)",
-      "Strong problem-solving and communication skills",
-    ],
-    responsibilities: [
-      "Design and implement scalable software solutions",
-      "Mentor junior developers and conduct code reviews",
-      "Collaborate with cross-functional teams",
-      "Participate in architecture and design discussions",
-      "Ensure code quality through testing and documentation",
-    ],
-  },
-  {
-    id: 2,
-    title: "Network Engineer",
-    department: "Infrastructure",
-    location: "Dhaka, Bangladesh",
-    type: "Full-time",
-    experience: "3+ years",
-    description:
-      "Join our infrastructure team to design, implement, and maintain network solutions for enterprise clients.",
-    requirements: [
-      "Bachelor's degree in IT, Computer Science, or related field",
-      "3+ years of experience in network engineering",
-      "CCNA/CCNP certification preferred",
-      "Experience with Cisco, Juniper, or similar networking equipment",
-      "Knowledge of network security best practices",
-    ],
-    responsibilities: [
-      "Design and implement network infrastructure",
-      "Monitor and troubleshoot network issues",
-      "Maintain network documentation",
-      "Implement security measures and policies",
-      "Provide technical support to clients",
-    ],
-  },
-  {
-    id: 3,
-    title: "Cybersecurity Analyst",
-    department: "Security",
-    location: "Dhaka, Bangladesh",
-    type: "Full-time",
-    experience: "2+ years",
-    description:
-      "We are seeking a Cybersecurity Analyst to help protect our clients' digital assets and ensure compliance with security standards.",
-    requirements: [
-      "Bachelor's degree in Cybersecurity, IT, or related field",
-      "2+ years of experience in cybersecurity",
-      "Knowledge of security frameworks (ISO 27001, NIST)",
-      "Experience with SIEM tools and vulnerability assessment",
-      "Security certifications (CEH, CompTIA Security+) preferred",
-    ],
-    responsibilities: [
-      "Monitor security systems and analyze threats",
-      "Conduct vulnerability assessments and penetration testing",
-      "Develop security policies and procedures",
-      "Respond to security incidents",
-      "Provide security awareness training",
-    ],
-  },
-  {
-    id: 4,
-    title: "Project Manager",
-    department: "Operations",
-    location: "Dhaka, Bangladesh",
-    type: "Full-time",
-    experience: "4+ years",
-    description:
-      "We are looking for an experienced Project Manager to lead technology implementation projects for our enterprise clients.",
-    requirements: [
-      "Bachelor's degree in Business, IT, or related field",
-      "4+ years of project management experience",
-      "PMP or PRINCE2 certification preferred",
-      "Experience in IT/technology projects",
-      "Excellent communication and leadership skills",
-    ],
-    responsibilities: [
-      "Plan and manage project timelines and resources",
-      "Coordinate with clients and internal teams",
-      "Monitor project progress and mitigate risks",
-      "Ensure project deliverables meet quality standards",
-      "Prepare project documentation and reports",
-    ],
-  },
-  {
-    id: 5,
-    title: "Business Development Executive",
-    department: "Sales",
-    location: "Dhaka, Bangladesh",
-    type: "Full-time",
-    experience: "2+ years",
-    description:
-      "Join our sales team to identify new business opportunities and build strong relationships with potential clients.",
-    requirements: [
-      "Bachelor's degree in Business, Marketing, or related field",
-      "2+ years of experience in B2B sales",
-      "Understanding of IT solutions and services",
-      "Strong presentation and negotiation skills",
-      "Ability to work independently and meet targets",
-    ],
-    responsibilities: [
-      "Identify and pursue new business opportunities",
-      "Build and maintain client relationships",
-      "Prepare and deliver sales presentations",
-      "Negotiate contracts and close deals",
-      "Achieve sales targets and KPIs",
-    ],
-  },
-];
 
 const benefits = [
   {
@@ -164,8 +42,6 @@ const benefits = [
 ];
 
 const JobCard = ({ job }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -174,11 +50,7 @@ const JobCard = ({ job }) => {
       transition={{ duration: 0.5 }}
       className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
     >
-      {/* Job Header */}
-      <div
-        className="p-5 sm:p-6 cursor-pointer"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
+      <Link to={`/careers/${job.slug}`} className="block p-5 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
@@ -202,83 +74,19 @@ const JobCard = ({ job }) => {
                 {job.experience}
               </span>
             </div>
+            <p className="text-gray-600 text-sm mt-3 line-clamp-2">
+              {job.description}
+            </p>
           </div>
-          <div className="flex items-center gap-3">
-            <Button
-              className="bg-[#02b0f0] hover:bg-[#02b0f0]/90 text-white px-4 sm:px-6 py-2 rounded-lg transition-all hover:scale-105 cursor-pointer"
-              onClick={(e) => {
-                e.stopPropagation();
-                window.location.href = `mailto:careers@technometrics.net?subject=Application for ${job.title}`;
-              }}
-            >
-              <span className="hidden sm:inline">Apply Now</span>
-              <span className="sm:hidden">Apply</span>
-              <Send className="w-4 h-4 ml-2" />
+          <div className="flex items-center">
+            <Button className="bg-[#02b0f0] hover:bg-[#02b0f0]/90 text-white px-4 sm:px-6 py-2 rounded-lg transition-all hover:scale-105 cursor-pointer">
+              <span className="hidden sm:inline">View Details</span>
+              <span className="sm:hidden">View</span>
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-            <button
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label={isExpanded ? "Collapse" : "Expand"}
-            >
-              {isExpanded ? (
-                <ChevronUp className="w-5 h-5 text-gray-600" />
-              ) : (
-                <ChevronDown className="w-5 h-5 text-gray-600" />
-              )}
-            </button>
           </div>
         </div>
-      </div>
-
-      {/* Expanded Content */}
-      <motion.div
-        initial={false}
-        animate={{
-          height: isExpanded ? "auto" : 0,
-          opacity: isExpanded ? 1 : 0,
-        }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <div className="px-5 sm:px-6 pb-6 border-t border-gray-100 pt-4">
-          <p className="text-gray-600 mb-6">{job.description}</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Requirements */}
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-3">Requirements</h4>
-              <ul className="space-y-2">
-                {job.requirements.map((req, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2 text-sm text-gray-600"
-                  >
-                    <span className="w-1.5 h-1.5 bg-[#02b0f0] rounded-full mt-2 shrink-0" />
-                    {req}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Responsibilities */}
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-3">
-                Responsibilities
-              </h4>
-              <ul className="space-y-2">
-                {job.responsibilities.map((resp, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2 text-sm text-gray-600"
-                  >
-                    <span className="w-1.5 h-1.5 bg-[#02b0f0] rounded-full mt-2 shrink-0" />
-                    {resp}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      </Link>
     </motion.div>
   );
 };

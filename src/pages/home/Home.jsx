@@ -4,13 +4,15 @@ import OurVision from "./OurVision";
 import Counter from "./Counter";
 import Testimonials from "./Testimonials";
 import Solutions from "./Solutions";
+import TechStack from "./TechStack";
 
 const Home = () => {
   return (
     <div className="overflow-x-hidden">
       <Hero />
       <OurVision />
-      <Solutions/>
+      <Solutions />
+      <TechStack />
       <Counter />
       <Testimonials />
     </div>
