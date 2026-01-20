@@ -76,11 +76,11 @@ const Clients = () => {
           >
             {imageList?.map((client, index) => (
               <SwiperSlide key={index}>
-                <div className="flex items-center justify-center h-20 sm:h-24 lg:h-28 p-4 border border-gray-700 rounded-xl bg-gray-800/50 hover:bg-gray-800 hover:border-[#02b0f0]/50 transition-all duration-300">
+                <div className="flex items-center justify-center h-20 sm:h-24 lg:h-28 p-4 rounded-xl bg-white hover:shadow-lg hover:shadow-[#02b0f0]/20 transition-all duration-300">
                   <img
                     src={client}
                     alt={`Client ${index + 1}`}
-                    className="max-h-full max-w-full object-contain inverttransition-all duration-300"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
               </SwiperSlide>

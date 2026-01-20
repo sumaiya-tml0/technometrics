@@ -18,13 +18,13 @@ const SolutionCard = ({ solution, index }) => {
       className="group"
     >
       <Link to={solution.link}>
-        <div className="relative bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#02b0f0]/30 transition-all duration-300 h-[160px] sm:h-[180px] lg:h-[180px] overflow-hidden">
+        <div className="relative bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#02b0f0]/30 transition-all duration-300 h-40 sm:h-45 lg:h-40 overflow-hidden">
           {/* Background Gradient on Hover */}
           <div className="absolute inset-0 bg-linear-to-br from-[#02b0f0]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-          <div className="relative z-10">
+          <div className="relative z-10 text-center">
             {/* Icon */}
-            <div className="w-12 h-12 rounded-xl bg-[#02b0f0]/10 flex items-center justify-center mb-3 group-hover:bg-[#02b0f0] transition-colors duration-300">
+            <div className="w-12 h-12 mx-auto rounded-xl bg-[#02b0f0]/10 flex items-center justify-center mb-3 group-hover:bg-[#02b0f0] transition-colors duration-300">
               <IconComponent className="w-6 h-6 text-[#02b0f0] group-hover:text-white transition-colors duration-300" />
             </div>
 
@@ -32,12 +32,6 @@ const SolutionCard = ({ solution, index }) => {
             <h4 className=" font-semibold text-gray-900 mb-2 group-hover:text-[#02b0f0] transition-colors duration-300">
               {solution.title}
             </h4>
-
-            {/* Arrow */}
-            <div className="mt-3 flex items-center text-[#02b0f0] font-medium text-sm opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-              <span>Learn more</span>
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </div>
           </div>
         </div>
       </Link>

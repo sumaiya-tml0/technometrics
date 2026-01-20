@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 const testimonials = [
   {
@@ -16,23 +16,20 @@ const testimonials = [
     role: "Managing Director, Teletalk Bangladesh LTD",
     content:
       "Technometrics' hands on approach has enabled us to mitigate many challenges swiftly before they could turn into serious supply chain disasters. In today's dynamic business climate, speed, reliability and efficiency is the key to a successful client vendor relationship.",
-    size: "large",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "CTO, DataFlow Systems",
+    name: "BRAC University",
+    role: "Premier Educational Institution",
     content:
-      "Outstanding cloud solutions and support. Highly recommended for any enterprise.",
-    size: "small",
+      "The comprehensive security surveillance and unified communication solution delivered by Technometrics has transformed our campus operations. The integration of 1600+ CCTV cameras with intelligent parking management demonstrates their technical excellence.",
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Director, SecureNet",
+    name: "Huawei Technologies",
+    role: "Global Technology Leader",
     content:
-      "Their cybersecurity team identified vulnerabilities we didn't know existed. Professional and thorough.",
-    size: "medium",
+      "Technometrics successfully implemented our complete Bangladesh HQ infrastructure including network, data center, and AV systems across 47 meeting rooms. Their turnkey approach from design to delivery exceeded our expectations.",
   },
 ];
 
@@ -113,11 +110,12 @@ const Testimonials = () => {
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             spaceBetween={30}
             centeredSlides={true}
+            loop={true}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay, Navigation]}
             className="mySwiper"
           >
             {testimonials?.map((testimonial, index) => (

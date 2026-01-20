@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import Header from "@/components/common/Header";
 import Footer from "../components/common/Footer";
@@ -7,8 +7,10 @@ import Footer from "../components/common/Footer";
 import logo from "@/assets/logo.png";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+
 const MainLayout = () => {
   const [loading, setLoading] = useState(true);
+  const { pathname } = useLocation();
 
   // Initialize Lenis
   const lenis = new Lenis();
@@ -20,6 +22,11 @@ const MainLayout = () => {
   }
 
   requestAnimationFrame(raf);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

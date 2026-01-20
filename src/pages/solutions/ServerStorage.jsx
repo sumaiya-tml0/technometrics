@@ -1,7 +1,14 @@
 import { motion } from "motion/react";
 import SolutionSection from "@/components/common/SolutionSection";
 import SolutionBanner from "@/components/common/SolutionBanner";
-import { Server, HardDrive, Cloud, Database, Shield, RefreshCw } from "lucide-react";
+import {
+  Server,
+  HardDrive,
+  Cloud,
+  Database,
+  Shield,
+  RefreshCw,
+} from "lucide-react";
 
 import solutionImg from "@/assets/images/home/server-storage-min.png";
 import datacenterImg from "@/assets/images/home/data-center-min-scaled.jpg";
@@ -9,44 +16,38 @@ import datacenterImg from "@/assets/images/home/data-center-min-scaled.jpg";
 const ServerStorage = () => {
   const services = [
     {
-      icon: Server,
-      title: "Enterprise Servers",
-      description: "High-performance server solutions for mission-critical workloads and enterprise applications.",
+      icon: Cloud,
+      title: "Desktop Virtualization",
     },
     {
       icon: HardDrive,
-      title: "Storage Solutions",
-      description: "Scalable SAN, NAS, and object storage for all your data management needs.",
+      title: "Storage Area Network Infrastructure",
+    },
+    {
+      icon: Server,
+      title: "Data Center Virtualization",
     },
     {
       icon: Database,
-      title: "Backup & Recovery",
-      description: "Comprehensive backup solutions with rapid recovery capabilities.",
-    },
-    {
-      icon: Cloud,
-      title: "Virtualization",
-      description: "VMware, Hyper-V, and cloud virtualization for optimal resource utilization.",
+      title: "Hyper-converged Infrastructure",
     },
     {
       icon: Shield,
-      title: "Data Protection",
-      description: "Enterprise-grade data protection and disaster recovery solutions.",
+      title: "Data Center Recovery",
     },
     {
       icon: RefreshCw,
-      title: "Business Continuity",
-      description: "Ensure uninterrupted operations with our continuity planning services.",
+      title: "Multi-device Management & Backup",
+    },
+    {
+      icon: Database,
+      title: "Infrastructure Backup",
+    },
+    {
+      icon: Server,
+      title: "IT Service Management",
     },
   ];
-
-  const stats = [
-    { value: "99.99%", label: "Uptime SLA" },
-    { value: "500+", label: "Deployments" },
-    { value: "24/7", label: "Support" },
-    { value: "50PB+", label: "Data Managed" },
-  ];
-
   return (
     <>
       <SolutionBanner
@@ -74,27 +75,6 @@ const ServerStorage = () => {
         reverse={false}
       />
 
-      {/* Stats Section */}
-      <section className="py-16 lg:py-20 px-4 sm:px-8 lg:px-16 bg-[#02b0f0]">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">{item.value}</div>
-                <div className="text-white/80 text-lg">{item.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Services Grid */}
       <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50">
         <div className="container mx-auto">
@@ -112,7 +92,8 @@ const ServerStorage = () => {
               Our <span className="text-[#02b0f0]">Services</span>
             </h2>
             <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
-              End-to-end infrastructure solutions tailored to your business needs.
+              End-to-end infrastructure solutions tailored to your business
+              needs.
             </p>
           </motion.div>
 
@@ -129,8 +110,9 @@ const ServerStorage = () => {
                 <div className="w-14 h-14 bg-[#02b0f0]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#02b0f0] transition-colors duration-300">
                   <item.icon className="w-7 h-7 text-[#02b0f0] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
               </motion.div>
             ))}
           </div>
@@ -175,7 +157,8 @@ const ServerStorage = () => {
               Technology <span className="text-[#02b0f0]">Partners</span>
             </h2>
             <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
-              We partner with industry leaders to deliver best-in-class solutions.
+              We partner with industry leaders to deliver best-in-class
+              solutions.
             </p>
           </motion.div>
 
@@ -186,14 +169,30 @@ const ServerStorage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
           >
-            {["Dell EMC", "HPE", "VMware", "Veeam", "NetApp", "Cisco", "Microsoft", "Nutanix"].map((partner, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-md flex items-center justify-center h-24 hover:shadow-lg transition-shadow"
-              >
-                <span className="text-gray-700 font-semibold text-lg">{partner}</span>
-              </div>
-            ))}
+            <div>
+              <img src="partners/dellemc.png" className="w-40 mx-auto" alt="" />
+            </div>
+            <div>
+              <img src="partners/Cisco.png" className="w-40 mx-auto" alt="" />
+            </div>
+            <div>
+              <img src="partners/vmware.png" className="w-40 mx-auto" alt="" />
+            </div>
+            <div>
+              <img src="partners/Commvault.png" alt="" />
+            </div>
+            <div>
+              <img src="partners/nutanix.png" className="w-40 mx-auto" alt="" />
+            </div>
+            <div>
+              <img src="partners/huawei.png" alt="" />
+            </div>
+            <div>
+              <img src="partners/hpe.png" className="w-40 mx-auto" alt="" />
+            </div>
+            <div>
+              <img src="partners/veritas.png" className="w-40 mx-auto" alt="" />
+            </div>
           </motion.div>
         </div>
       </section>

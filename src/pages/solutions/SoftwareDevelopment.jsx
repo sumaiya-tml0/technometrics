@@ -40,18 +40,11 @@ const SoftwareDevelopment = () => {
     },
   ];
 
-  const stats = [
-    { value: "200+", label: "Projects Delivered" },
-    { value: "50+", label: "AI/ML Models" },
-    { value: "99%", label: "Client Satisfaction" },
-    { value: "15+", label: "Years Experience" },
-  ];
-
   const technologies = {
     frontend: ["React", "Next.js", "Vue.js", "Angular", "TypeScript"],
     backend: ["Node.js", "Python", "Java", ".NET", "Go"],
     mobile: ["React Native", "Flutter", "Swift", "Kotlin"],
-    ai: ["TensorFlow", "PyTorch", "OpenAI", "LangChain", "Scikit-learn"],
+    AI: ["TensorFlow", "PyTorch", "OpenAI", "LangChain", "Scikit-learn"],
     cloud: ["AWS", "Azure", "GCP", "Docker", "Kubernetes"],
     database: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"],
   };
@@ -116,27 +109,6 @@ const SoftwareDevelopment = () => {
         reverse={false}
       />
 
-      {/* Stats Section */}
-      <section className="py-16 lg:py-20 px-4 sm:px-8 lg:px-16 bg-[#02b0f0]">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">{item.value}</div>
-                <div className="text-white/80 text-lg">{item.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Services Grid */}
       <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50">
         <div className="container mx-auto">
@@ -171,8 +143,7 @@ const SoftwareDevelopment = () => {
                 <div className="w-14 h-14 bg-[#02b0f0]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#02b0f0] transition-colors duration-300">
                   <item.icon className="w-7 h-7 text-[#02b0f0] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
               </motion.div>
             ))}
           </div>
@@ -285,31 +256,6 @@ const SoftwareDevelopment = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gradient-to-r from-[#02b0f0] to-[#0288d1]">
-        <div className="container mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Ready to Build Your Solution?
-            </h2>
-            <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-              Let's discuss how we can help you transform your ideas into powerful software solutions.
-            </p>
-            <a
-              href="/contact"
-              className="inline-block bg-white text-[#02b0f0] font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Get in Touch
-            </a>
-          </motion.div>
         </div>
       </section>
     </>

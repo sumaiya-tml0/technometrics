@@ -37,7 +37,8 @@ const benefits = [
   {
     icon: Users,
     title: "Great Team",
-    description: "Work with talented professionals in a collaborative environment",
+    description:
+      "Work with talented professionals in a collaborative environment",
   },
 ];
 
@@ -174,34 +175,6 @@ const Careers = () => {
               <JobCard key={job.id} job={job} />
             ))}
           </div>
-
-          {/* No Suitable Position */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-12 bg-gradient-to-r from-[#02b0f0]/5 to-[#02b0f0]/10 rounded-xl p-6 sm:p-8 text-center"
-          >
-            <Briefcase className="w-12 h-12 text-[#02b0f0] mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              Don't see a suitable position?
-            </h3>
-            <p className="text-gray-600 mb-4 max-w-xl mx-auto">
-              We're always looking for talented individuals. Send us your resume
-              and we'll keep you in mind for future opportunities.
-            </p>
-            <Button
-              className="bg-[#02b0f0] hover:bg-[#02b0f0]/90 text-white px-6 py-5 rounded-lg transition-all hover:scale-105 cursor-pointer"
-              onClick={() =>
-                (window.location.href =
-                  "mailto:careers@technometrics.net?subject=General Application")
-              }
-            >
-              Submit Your Resume
-              <Send className="w-4 h-4 ml-2" />
-            </Button>
-          </motion.div>
         </div>
       </section>
     </>

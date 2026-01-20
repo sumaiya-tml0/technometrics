@@ -14,6 +14,10 @@ import {
 
 import logo from "@/assets/images/logo_white.png";
 
+import iso1 from "@/assets/images/iso_certification1.png";
+import iso2 from "@/assets/images/iso_certification2.png";
+import iso3 from "@/assets/images/iso_certification3.png";
+
 import basis from "@/assets/images/basis.svg";
 import mcci from "@/assets/images/mcci_logo.png";
 import { Link } from "react-router";
@@ -33,14 +37,14 @@ const offices = [
 ];
 
 const contactInfo = {
-  phone: "+88 02 4895 4441-2",
+  phone: "+880 1534 570454",
   email: "askus@technometrics.net",
 };
 
 const certifications = [
-  { name: "ISO 20000-1:2011" },
-  { name: "ISO 9001-2015" },
-  { name: "ISO 27001-2013" },
+  { name: "ISO 20000-1:2011", image: iso1 },
+  { name: "ISO 9001-2015", image: iso2 },
+  { name: "ISO 27001-2013", image: iso3 },
 ];
 
 const affiliations = [
@@ -181,11 +185,14 @@ const GetTouch = () => {
                 <Award className="w-5 h-5 text-[#02b0f0]" />
                 Certifications
               </h4>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-4 gap-3">
                 {certifications.map((cert, index) => (
-                  <p key={index} className="text-xs mt-1">
-                    {cert.name}
-                  </p>
+                  <img
+                    src={cert.image}
+                    alt={cert.name}
+                    key={index}
+                    className="text-base mt-1"
+                  />
                 ))}
               </div>
             </div>

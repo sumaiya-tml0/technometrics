@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const SolutionBanner = ({ title, subtitle, bgImage }) => {
   return (
     <div
-      className="relative min-h-[50vh] flex items-center justify-center px-4 sm:px-8 lg:px-16 bg-cover bg-center bg-no-repeat"
+      className="relative min-h-[70vh] flex items-center justify-center px-4 sm:px-8 lg:px-16 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: bgImage ? `url(${bgImage})` : undefined }}
     >
       {/* Overlay */}

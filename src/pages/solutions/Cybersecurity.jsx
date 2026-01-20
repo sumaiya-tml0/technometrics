@@ -4,7 +4,6 @@ import SolutionBanner from "@/components/common/SolutionBanner";
 import { ShieldCheck, Lock, Eye, AlertTriangle, Search, Users } from "lucide-react";
 
 import bannerImg from "@/assets/images/home/informatin-security-min.png";
-import digitalImg from "@/assets/images/home/digital-transformation-min.png";
 
 const Cybersecurity = () => {
   const services = [
@@ -38,13 +37,6 @@ const Cybersecurity = () => {
       title: "Security Training",
       description: "Security awareness programs and phishing simulations.",
     },
-  ];
-
-  const stats = [
-    { value: "99.9%", label: "Threat Detection" },
-    { value: "24/7", label: "SOC Monitoring" },
-    { value: "<1hr", label: "Response Time" },
-    { value: "500+", label: "Clients Protected" },
   ];
 
   const frameworks = [
@@ -82,27 +74,6 @@ const Cybersecurity = () => {
         Icon={ShieldCheck}
         reverse={false}
       />
-
-      {/* Stats Section */}
-      <section className="py-16 lg:py-20 px-4 sm:px-8 lg:px-16 bg-[#02b0f0]">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">{item.value}</div>
-                <div className="text-white/80 text-lg">{item.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services Grid */}
       <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50">
@@ -146,27 +117,6 @@ const Cybersecurity = () => {
         </div>
       </section>
 
-      {/* SOC Section */}
-      <SolutionSection
-        id="soc-services"
-        subtitle="_SOC Services_"
-        title="Security Operations"
-        highlightedText="Center"
-        description="Our Security Operations Center provides round-the-clock monitoring and rapid response to security threats. We combine advanced technology with expert analysts to protect your organization."
-        features={[
-          "24/7 security monitoring and alerting",
-          "SIEM implementation and management",
-          "Threat intelligence and analysis",
-          "Log management and correlation",
-          "Security incident handling",
-          "Regular security reporting and metrics",
-        ]}
-        image={digitalImg}
-        Icon={Eye}
-        reverse={true}
-        bgColor="bg-white"
-      />
-
       {/* Frameworks Section */}
       <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50">
         <div className="container mx-auto">
@@ -206,78 +156,51 @@ const Cybersecurity = () => {
         </div>
       </section>
 
-      {/* Approach Section */}
-      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-white">
+   {/* Technology Partners */}
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gray-50">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-[#02b0f0] font-semibold text-sm uppercase tracking-wider">
-                _Our Approach_
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-3 mb-6">
-                Defense in <span className="text-[#02b0f0]">Depth</span>
-              </h2>
-              <p className="text-gray-600 text-lg mb-6">
-                We implement a multi-layered security approach that protects your organization at every level, from perimeter to endpoint.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Perimeter security and network protection",
-                  "Endpoint detection and response (EDR)",
-                  "Application and data security",
-                  "Identity and access controls",
-                  "Security monitoring and analytics",
-                  "Incident response and recovery",
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.1 * index }}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="w-2 h-2 bg-[#02b0f0] rounded-full" />
-                    <span className="text-gray-700">{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <span className="text-[#02b0f0] font-semibold text-sm uppercase tracking-wider">
+              _Partners_
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-3">
+              Industry-Leading <span className="text-[#02b0f0]">Partners</span>
+            </h2>
+            <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
+              We partner with world-class technology vendors to deliver
+              best-in-class solutions.
+            </p>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gray-50 p-8 rounded-2xl"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Technology Stack</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  "Next-Gen Firewalls",
-                  "SIEM Platforms",
-                  "EDR Solutions",
-                  "IAM Systems",
-                  "DLP Tools",
-                  "Email Security",
-                  "WAF",
-                  "CASB",
-                ].map((tech, index) => (
-                  <div
-                    key={index}
-                    className="bg-white px-4 py-3 rounded-lg text-gray-700 font-medium text-center shadow-sm"
-                  >
-                    {tech}
-                  </div>
-                ))}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              "partners/check_point.png",
+              "partners/fortinet.png",
+              "partners/ec_council.png",
+              "partners/paloalto.png",
+              
+
+            ].map((partner, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center h-24 "
+              >
+                <img src={partner} className="md:w-40 md:mx-auto" alt="" />
               </div>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
         </div>
       </section>
     </>

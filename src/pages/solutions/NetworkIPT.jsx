@@ -10,33 +10,31 @@ const NetworkIPT = () => {
   const capabilities = [
     {
       icon: Network,
-      title: "Enterprise Networking",
-      description: "Design and deploy scalable network infrastructure with high availability and performance.",
-    },
-    {
-      icon: Shield,
-      title: "Network Security",
-      description: "Comprehensive security solutions including firewalls, IDS/IPS, and threat prevention.",
-    },
-    {
-      icon: Phone,
-      title: "IP Telephony",
-      description: "Modern VoIP solutions for seamless business communication across locations.",
-    },
-    {
-      icon: Headphones,
-      title: "Contact Center",
-      description: "Omnichannel contact center solutions for superior customer experience.",
-    },
-    {
-      icon: Wifi,
-      title: "Wireless Solutions",
-      description: "Enterprise-grade wireless networks with seamless coverage and security.",
+      title: "Network Design & Implementation",
     },
     {
       icon: Server,
+      title: "Data Center Networking",
+    },
+    {
+      icon: Network,
       title: "SD-WAN",
-      description: "Software-defined WAN for optimized connectivity and reduced costs.",
+    },
+    {
+      icon: Shield,
+      title: "Secure Network Access",
+    },
+    {
+      icon: Shield,
+      title: "Application Delivery and Security Solutions",
+    },
+    {
+      icon: Wifi,
+      title: "Wi-Fi 6 (802.11ax) Solution",
+    },
+    {
+      icon: Server,
+      title: "Network Management and Operations",
     },
   ];
 
@@ -84,7 +82,8 @@ const NetworkIPT = () => {
               Our Core <span className="text-[#02b0f0]">Capabilities</span>
             </h2>
             <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
-              Comprehensive networking and communication solutions tailored for modern enterprises.
+              Comprehensive networking and communication solutions tailored for
+              modern enterprises.
             </p>
           </motion.div>
 
@@ -101,8 +100,9 @@ const NetworkIPT = () => {
                 <div className="w-14 h-14 bg-[#02b0f0]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#02b0f0] transition-colors duration-300">
                   <item.icon className="w-7 h-7 text-[#02b0f0] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
               </motion.div>
             ))}
           </div>
@@ -147,7 +147,8 @@ const NetworkIPT = () => {
               Industry-Leading <span className="text-[#02b0f0]">Partners</span>
             </h2>
             <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
-              We partner with world-class technology vendors to deliver best-in-class solutions.
+              We partner with world-class technology vendors to deliver
+              best-in-class solutions.
             </p>
           </motion.div>
 
@@ -156,14 +157,25 @@ const NetworkIPT = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="grid grid-cols-2 lg:grid-cols-5 gap-6"
           >
-            {["Cisco", "Fortinet", "Palo Alto", "Avaya", "Juniper", "Aruba", "F5", "Genesys"].map((partner, index) => (
+            {[
+              "partners/allied_telesis.png",
+              "partners/avaya.png",
+              "partners/huawei.png",
+              "partners/Cisco.png",
+              "partners/sophos.png",
+              "partners/juniper.png",
+              "partners/paloalto.png",
+              "partners/check_point.png",
+              "partners/fortinet.png",
+              "partners/sonicwall.png",
+            ].map((partner, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-md flex items-center justify-center h-24 hover:shadow-lg transition-shadow"
+                className="flex items-center justify-center h-24 "
               >
-                <span className="text-gray-700 font-semibold text-lg">{partner}</span>
+                <img src={partner} className="md:w-40 md:mx-auto" alt="" />
               </div>
             ))}
           </motion.div>

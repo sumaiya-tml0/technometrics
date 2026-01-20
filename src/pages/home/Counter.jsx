@@ -4,28 +4,28 @@ import { Users, Briefcase, Award, Clock, Globe, Handshake, ShieldCheck } from "l
 
 const stats = [
   {
-    icon: Briefcase,
+    icon: Clock,
     value: 8,
     suffix: "+",
-    label: "Years of Experience",
+    label: "Years of Excellence",
   },
   {
     icon: ShieldCheck,
-    value: 63,
+    value: 100,
     suffix: "+",
-    label: "trusted clients",
+    label: "Trusted Clients",
   },
   {
     icon: Handshake,
-    value: 39,
+    value: 40,
     suffix: "+",
-    label: "global partners",
+    label: "Global Partners",
   },
   {
     icon: Award,
     value: 3,
     suffix: "+",
-    label: "iso certification",
+    label: "ISO Certifications",
   },
 ];
 

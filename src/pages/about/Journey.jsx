@@ -27,13 +27,13 @@ const Journey = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-lg p-8 lg:p-12"
+            className="bg-white rounded-md shadow-lg p-8 lg:p-12"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-[#02b0f0] rounded-full flex items-center justify-center shrink-0">
                 <span className="text-white font-bold text-xl">2017</span>
               </div>
-              <div className="h-1 flex-1 bg-gradient-to-r from-[#02b0f0] to-transparent rounded-full" />
+              <div className="h-1 flex-1 bg-linear-to-r from-[#02b0f0] to-transparent rounded-full" />
             </div>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
